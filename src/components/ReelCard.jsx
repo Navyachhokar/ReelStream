@@ -18,14 +18,14 @@ const ReelCard = ({id, videoUrl, username, caption}) => {
         if(saved) return parseInt(saved);
         const randomCount = Math.floor(Math.random()*2000);
         localStorage.setItem(`comment_count${id}`, randomCount);
-        setCommentCount(randomCount);
+        return randomCount;
     })
     const[shareCount, setShareCount] = useState(()=> {
         const saved = localStorage.getItem(`share_count${id}`);
         if(saved) return parseInt(saved);
         const randomShareCount = Math.floor(Math.random()*1000)
         localStorage.setItem(`share_count${id}`, randomShareCount);
-        setShareCount(randomShareCount);
+        return randomShareCount;
     })
 
     const handleLike = () => {

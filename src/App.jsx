@@ -12,7 +12,7 @@ function App() {
     const getVideos = async () => {
       try {
         const response = await axios.get(
-          "https://api.pexels.com/videos/popular?per_page=5",
+          "https://api.pexels.com/videos/popular?per_page=10",
           {
             headers: {
               Authorization: import.meta.env.VITE_PEXELS_API_KEY,
