@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import './App.css'
 import ReelCard from "./components/ReelCard";
+import SkeletonCard from "./components/SkeletonCard";
 import axios from "axios";
 
 function App() {
   const [reels, setReels] = useState([]);
+  const[loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getVideos = async () => {
@@ -20,6 +22,8 @@ function App() {
         setReels(response.data.videos);
       } catch (error) {
         console.error("Error fetching data:", error);
+      }finally{
+        setLoading(false);
       }
     };
 
@@ -32,7 +36,8 @@ function App() {
       <section className="h-[90vh] w-full max-w-87.5 bg-zinc-900 rounded-2xl overflow-hidden relative border border-zinc-800">
        
         <div className="all-reels h-full w-full overflow-y-scroll snap-y snap-mandatory no-scrollbar">
-          {reels.map((reel) => (
+          {loading ? ([...Array(5)].map((_, i) => <SkeletonCard key={i} />))
+          :(reels.map((reel) => (
            <ReelCard
              key={reel.id}
              id={reel.id}
@@ -40,7 +45,8 @@ function App() {
              username={reel.user.name}
              caption={reel.url}
            />    
-          ))}
+          ))
+          )}
         </div>
       </section>
     </main>
