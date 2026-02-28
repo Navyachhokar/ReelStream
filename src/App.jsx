@@ -35,6 +35,7 @@ function App() {
           {reels.map((reel) => (
            <ReelCard
              key={reel.id}
+             id={reel.id}
              videoUrl={reel.video_files[0].link}
              username={reel.user.name}
              caption={reel.url}
