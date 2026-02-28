@@ -71,13 +71,13 @@ const ReelCard = ({id, videoUrl, username, caption}) => {
         playsInline
       />
 
-      <div className="absolute right-4 bottom-10 flex flex-col items-center gap-6 z-10">
+      <div className="absolute right-4 bottom-10 flex flex-col items-center gap-4 z-10">
         <div
           className="flex flex-col items-center cursor-pointer"
           onClick={handleLike}
         >
           <i
-            className={`${isLiked ? "ri-heart-fill text-red-500" : "ri-heart-line text-white "} text-3xl`}
+            className={`${isLiked ? "ri-heart-fill text-red-500" : "ri-heart-line text-white "} text-2xl lg:text-3xl`}
           ></i>
           <span className="text-xs text-white mt-1">{likeCount}</span>
         </div>
@@ -85,14 +85,14 @@ const ReelCard = ({id, videoUrl, username, caption}) => {
           className="flex flex-col items-center cursor-pointer"
           onClick={handleComment}
         >
-          <i className="ri-chat-3-line text-white text-3xl"></i>
+          <i className="ri-chat-3-line text-white text-2xl lg:text-3xl"></i>
           <span className="text-xs text-white mt-1">{commentCount}</span>
         </div>
         <div
           className="flex flex-col items-center cursor-pointer"
           onClick={handleShare}
         >
-          <i className="ri-send-plane-fill text-white text-3xl"></i>
+          <i className="ri-send-plane-fill text-white text-2xl lg:text-3xl"></i>
           <span className="text-xs text-white mt-1">{shareCount}</span>
         </div>
         <div
@@ -100,12 +100,12 @@ const ReelCard = ({id, videoUrl, username, caption}) => {
           onClick={handleSave}
         >
           <i
-            className={`${isSaved ? "ri-bookmark-fill" : "ri-bookmark-line "} text-white text-3xl`}
+            className={`${isSaved ? "ri-bookmark-fill" : "ri-bookmark-line "} text-white text-2xl lg:text-3xl`}
           ></i>
           <span className="text-xs text-white mt-1">{saveCount}</span>
         </div>
         <div className="flex flex-col items-center cursor-pointer">
-          <i className="ri-more-2-fill text-white text-3xl"></i>
+          <i className="ri-more-2-fill text-white text-2xl lg:text-3xl"></i>
         </div>
       </div>
       <div className="absolute bottom-6 left-4 right-12 text-white z-10">
