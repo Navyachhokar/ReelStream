@@ -7,6 +7,25 @@ import axios from "axios";
 function App() {
   const [reels, setReels] = useState([]);
   const[loading, setLoading] = useState(true);
+  const[currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString([],{
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }));
+
+  useEffect(() => {
+    const timer = setInterval(()=> {
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      );
+    },60000);
+
+    return() =>clearInterval(timer);
+  },[]);
 
   const containerRef = useRef(null);
 
@@ -56,7 +75,7 @@ function App() {
           className="absolute flex top-0 left-0 w-full h-8 z-60 cursor-pointer justify-between px-6 pt-3 text-white text-[15px] font-medium items-center hover:bg-white/5 transition-colors"
           title="Back to top"
         >
-          <span>9:41</span>
+          <span>{currentTime}</span>
           <div className="flex  gap-1.5 items-center">
             <i className="ri-signal-tower-fill"></i>
             <i className="ri-wifi-line"></i>
