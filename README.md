@@ -30,7 +30,6 @@ This project marks my transition from simple DOM manipulation to a professional 
 To keep the project clean and scalable, I followed a standard React industry structure:
 
 
-
 ```text
 ReelStream/
 ├── public/              # Static assets
@@ -44,6 +43,7 @@ ReelStream/
 ├── .env                 # API Keys (Git ignored)
 ├── package.json         # Dependencies
 └── README.md            # Documentation
+```
 
 ---
 
@@ -51,66 +51,56 @@ ReelStream/
 
 1.  Clone the Repo
     ```
-
     git clone [https://github.com/Navyachhokar/ReelStream](https://github.com/Navyachhokar/ReelStream)
     cd ReelStream
+    ```
 
 2.  Install Dependencies
     ```
-
     npm install
+    ```
 
 3.  Configure Environment
     Create a .env file in the root and add:
-    Plaintext
-
+    ```
     VITE_PEXELS_KEY=your_pexels_api_key_here
+    ```
 
 4.  Run Development Server
     ```
-
     npm run dev
+    ```
 
 ## 🛠️ Challenges & Learnings
 
-1. State Synchronization
-
+### 1. State Synchronization
 One of the main hurdles was ensuring that "Like" and "Save" counts remained independent for each reel. By using a component-based architecture, I ensured that a state change in ReelCard #1 doesn't trigger a re-render in ReelCard #2.
 
-2. LocalStorage Logic
-
+### 2. LocalStorage Logic
 To prevent random numbers from changing on every refresh, I implemented a "Check-then-Set" logic:
+- If data exists in `localStorage` for a specific ID, use it.
+- If not, generate a random number and "lock" it into storage.
 
-    •If data exists in localStorage for a specific ID, use it.
-
-    •If not, generate a random number and "lock" it into storage.
-
-3. Responsive Constraints
-
-Achieving a mobile-first look on ultra-wide monitors was solved using Tailwind's aspect-[9/16] and max-h-[90vh]. This ensures the video never stretches past its intended vertical ratio.
+### 3. Responsive Constraints
+Achieving a mobile-first look on ultra-wide monitors was solved using Tailwind's `aspect-[9/16]` and `max-h-[90vh]`. This ensures the video never stretches past its intended vertical ratio.
 
 ---
 
 ## 📈 Future Roadmap
 
-• [ ] Infinite Scroll: Use Intersection Observer to fetch "Page 2" of data when the user reaches the last reel.
-
-• [ ] Search Filter: Allow users to search for specific video categories (e.g., "Nature", "Coding").
-
-• [ ] Global Mute: Implement a single state to mute/unmute all videos simultaneously.
+- [ ] **Infinite Scroll:** Use Intersection Observer to fetch "Page 2" of data when the user reaches the last reel.
+- [ ] **Search Filter:** Allow users to search for specific video categories (e.g., "Nature", "Coding").
+- [ ] **Global Mute:** Implement a single state to mute/unmute all videos simultaneously.
 
 ---
 
-##🤝 Contributing
-
+## 🤝 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
 ---
 
-##📄 License
-
-This project is MIT licensed.
+## 📄 License
+This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
 ---
-
-Developed by Navya as part of my Frontend Engineering Journey.
+*Developed by Navya as part of my Frontend Engineering Journey.*
